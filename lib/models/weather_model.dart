@@ -1,6 +1,6 @@
 class WeatherModel {
   final String cityName;
-  final String date;
+  final DateTime date;
   final String? image;
   final double temp;
   final double maxTemp;
@@ -20,7 +20,7 @@ class WeatherModel {
     dynamic day = json['forecast']['forecastday'][0]['day'];
     return WeatherModel(
         cityName: json['location']['name'],
-        date: json['current']['last_updated'],
+        date: DateTime.parse(json['current']['last_updated']),
         temp: day['avgtemp_c'],
         maxTemp: day['maxtemp_c'],
         minTemp: day['mintemp_c'],
